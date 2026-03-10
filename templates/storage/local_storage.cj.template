@@ -1,0 +1,41 @@
+/**
+ * 模板名称：本地存储
+ * 使用场景：使用本地存储保存数据
+ * 语法模块：第2.4节 - SystemLibs 存储能力
+ * 示例参考：examples/07_system_capabilities.cj
+ *
+ * 可配置参数：
+ * - STORAGE_NAME: 存储管理类名
+ * - KEY_PREFIX: 存储键前缀
+ */
+
+import cjmp.storage.*
+
+class {{STORAGE_NAME}} {
+    private let keyPrefix: String = "{{KEY_PREFIX}}_"
+    
+    // 保存数据
+    public func save(key: String, value: String): Unit {
+        Preferences.put("${keyPrefix}${key}", value)
+    }
+    
+    // 读取数据
+    public func load(key: String, defaultValue: String): String {
+        return Preferences.get("${keyPrefix}${key}", defaultValue: defaultValue)
+    }
+    
+    // 删除数据
+    public func remove(key: String): Unit {
+        Preferences.remove("${keyPrefix}${key}")
+    }
+    
+    // 清空所有数据
+    public func clear(): Unit {
+        Preferences.clear()
+    }
+    
+    // 检查是否存在
+    public func has(key: String): Bool {
+        return Preferences.has("${keyPrefix}${key}")
+    }
+}

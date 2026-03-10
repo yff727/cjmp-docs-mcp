@@ -1,0 +1,44 @@
+/**
+ * 模板名称：网络请求
+ * 使用场景：发起 HTTP 网络请求
+ * 语法模块：第2.4节 - SystemLibs 网络能力
+ * 示例参考：examples/07_system_capabilities.cj
+ *
+ * 可配置参数：
+ * - REQUEST_NAME: 请求方法名
+ * - URL: 请求地址
+ * - METHOD: 请求方法 (GET/POST/PUT/DELETE)
+ * - RESPONSE_TYPE: 响应数据类型
+ */
+
+import cjmp.network.*
+
+func {{REQUEST_NAME}}(callback: (Option<{{RESPONSE_TYPE}}>) -> Unit): Unit {
+    let request = HttpRequest(
+        url: "{{URL}}",
+        method: HttpMethod.{{METHOD}}
+    )
+    
+    // 添加请求头
+    // request.addHeader("Content-Type", "application/json")
+    
+    // 添加请求体 (POST/PUT)
+    // request.setBody("{\"key\": \"value\"}")
+    
+    HttpClient.send(request) { response =>
+        match (response) {
+            case Some(resp) =>
+                if (resp.statusCode == 200) {
+                    // 解析响应
+                    // let data = parseResponse(resp.body)
+                    // callback(Some(data))
+                } else {
+                    AppLog.error("请求失败: ${resp.statusCode}")
+                    callback(None)
+                }
+            case None =>
+                AppLog.error("网络错误")
+                callback(None)
+        }
+    }
+}

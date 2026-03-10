@@ -1,0 +1,69 @@
+{
+  "docSources": [
+    {
+      "name": "Docs",
+      "description": "应用开发者快速入门、框架开发者快速入门等文档",
+      "type": "local",
+      "path": "../CJMP-repos/Docs",
+      "enabled": true,
+      "priority": 1
+    },
+    {
+      "name": "Engine",
+      "description": "UI引擎主要由多UI前端适配层、UI组件、渲染管线、图形引擎、执行引擎和平台适配层等主要部件构成",
+      "type": "local",
+      "path": "../CJMP-repos/Engine",
+      "enabled": true,
+      "priority": 2
+    },
+    {
+      "name": "CJFrontend",
+      "description": "CJMP的仓颉UI前端，提供仓颉API开发仓颉UI界面",
+      "type": "local",
+      "path": "../CJMP-repos/CJFrontend",
+      "enabled": true,
+      "priority": 3
+    },
+    {
+      "name": "SystemLibs",
+      "description": "CJMP通过统一抽象系统能力接口屏蔽平台差异，为上层应用提供三端一致的API",
+      "type": "local",
+      "path": "../CJMP-repos/SystemLibs",
+      "enabled": true,
+      "priority": 4
+    },
+    {
+      "name": "cangjie_multiplatform_interop",
+      "description": "仓颉语言为开发者提供了与 Java 语言和 ObjC 语言互操作的能力",
+      "type": "local",
+      "path": "../CJMP-repos/cangjie_multiplatform_interop",
+      "enabled": true,
+      "priority": 5
+    },
+    {
+      "name": "Community",
+      "description": "跨平台框架SIG例会材料、会议纪要等",
+      "type": "local",
+      "path": "../CJMP-repos/Community",
+      "enabled": true,
+      "priority": 6
+    }
+  ],
+  "indexConfig": {
+    "enableIndex": true,
+    "indexType": "semantic",
+    "chunkSize": 1000,
+    "chunkOverlap": 200,
+    "fileTypes": [".md", ".markdown", ".cj", ".json", ".yaml", ".yml", ".gn", ".gni"]
+  },
+  "cacheConfig": {
+    "enableCache": true,
+    "cacheTTL": 3600,
+    "maxCacheSize": 100
+  },
+  "searchConfig": {
+    "maxResults": 10,
+    "minRelevance": 0.1,
+    "enableHighlight": true
+  }
+}

@@ -1,0 +1,29 @@
+/**
+ * 模板名称：CJMP 应用入口
+ * 使用场景：创建新的 CJMP 应用入口文件
+ * 语法模块：第2章 - CJMP 应用基础
+ * 示例参考：examples/01_hello_world.cj
+ *
+ * 可配置参数：
+ * - ABILITY_NAME: Ability 类名
+ * - MESSAGE: 初始显示消息
+ */
+
+import cjmp.ui.*
+
+@Entry
+class {{ABILITY_NAME}} {
+    func onCreate(want: Want, launchParam: LaunchParam): Unit {
+        AppLog.info("{{ABILITY_NAME}} OnCreated")
+    }
+
+    func build() {
+        Column {
+            Text("{{MESSAGE}}")
+                .fontSize(24)
+                .textAlign(TextAlign.Center)
+        }
+        .width(100.percent)
+        .height(100.percent)
+    }
+}

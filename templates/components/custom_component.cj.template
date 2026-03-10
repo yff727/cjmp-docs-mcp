@@ -1,0 +1,24 @@
+/**
+ * 模板名称：自定义组件
+ * 使用场景：创建可复用的自定义组件
+ * 语法模块：第2.3节 - CJFrontend 组件
+ * 示例参考：examples/04_list_components.cj
+ *
+ * 可配置参数：
+ * - COMPONENT_NAME: 组件名称
+ * - PROPS: 组件属性列表
+ */
+
+import cjmp.ui.*
+
+@Component
+class {{COMPONENT_NAME}} {
+    // 组件属性
+    // {{PROPS}}
+    
+    func build() {
+        Column {
+            // 组件内容
+        }
+    }
+}

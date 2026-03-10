@@ -1,0 +1,45 @@
+/**
+ * 模板名称：数据源
+ * 使用场景：创建列表数据源
+ * 语法模块：第2.3节 - CJFrontend 列表
+ * 示例参考：examples/04_list_components.cj
+ *
+ * 可配置参数：
+ * - DATA_SOURCE_NAME: 数据源名称
+ * - ITEM_TYPE: 数据项类型
+ * - ITEM_FIELDS: 数据项字段
+ */
+
+import std.collection.ArrayList
+
+class {{ITEM_TYPE}} {
+    // {{ITEM_FIELDS}}
+    public var id: Int64 = 0
+    public var name: String = ""
+}
+
+class {{DATA_SOURCE_NAME}} <: DataSource<{{ITEM_TYPE}}> {
+    private var data_: ArrayList<{{ITEM_TYPE}}> = ArrayList<{{ITEM_TYPE}}>()
+    private var listenerOp: Option<DataChangeListener> = None
+    
+    public func totalCount(): Int64 {
+        return data_.size
+    }
+    
+    public func getData(index: Int64): {{ITEM_TYPE}} {
+        return data_[index]
+    }
+    
+    public func onRegisterDataChangeListener(listener: DataChangeListener): Unit {
+        listenerOp = listener
+    }
+    
+    public func onUnregisterDataChangeListener(listener: DataChangeListener): Unit {
+        listenerOp = None
+    }
+    
+    public func notifyChange(): Unit {
+        let listener: DataChangeListener = listenerOp.getOrThrow()
+        listener.onDataReloaded()
+    }
+}

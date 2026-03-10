@@ -1,0 +1,39 @@
+/**
+ * 模板名称：Java 互操作桥接
+ * 使用场景：创建仓颉与 Java 的互操作桥接
+ * 语法模块：第2.5节 - cangjie_multiplatform_interop
+ * 示例参考：examples/08_java_interop.cj
+ *
+ * 可配置参数：
+ * - BRIDGE_NAME: 桥接类名
+ * - JAVA_CLASS: Java 类全路径
+ * - NATIVE_METHODS: 本地方法声明
+ */
+
+// Java 侧代码示例:
+// package com.example.plugin;
+// public class {{JAVA_CLASS}} {
+//     public String nativeMethod() {
+//         // Java 实现
+//     }
+// }
+
+// C++ JNI 桥接层示例:
+// extern "C" {
+//     const char* nativeMethod() {
+//         // JNI 调用 Java
+//     }
+// }
+
+// 仓颉 FFI 声明
+class {{BRIDGE_NAME}} {
+    // FFI 方法声明
+    // {{NATIVE_METHODS}}
+    foreign func nativeMethod(): CPointer<UInt8>
+    
+    // 封装方法
+    public func callNativeMethod(): String {
+        let ptr = nativeMethod()
+        return CPointerUtils.toString(ptr)
+    }
+}

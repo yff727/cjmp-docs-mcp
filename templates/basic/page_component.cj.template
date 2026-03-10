@@ -1,0 +1,32 @@
+/**
+ * 模板名称：页面组件
+ * 使用场景：创建新的页面组件
+ * 语法模块：第2.3节 - CJFrontend 组件
+ * 示例参考：examples/05_router_navigation.cj
+ *
+ * 可配置参数：
+ * - PAGE_NAME: 页面名称
+ * - PAGE_TITLE: 页面标题
+ */
+
+import cjmp.ui.*
+
+class {{PAGE_NAME}} {
+    @State private var message: String = ""
+    
+    func aboutToAppear(): Unit {
+        // 页面初始化逻辑
+    }
+    
+    func build() {
+        Column {
+            Text("{{PAGE_TITLE}}")
+                .fontSize(24)
+                .margin(bottom: 20)
+            
+            // 添加页面内容
+        }
+        .width(100.percent)
+        .height(100.percent)
+    }
+}

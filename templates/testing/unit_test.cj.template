@@ -1,0 +1,38 @@
+/**
+ * 模板名称：单元测试
+ * 使用场景：创建 CJMP 组件单元测试
+ * 语法模块：仓颉单元测试
+ * 示例参考：仓颉语言测试框架
+ *
+ * 可配置参数：
+ * - TEST_CLASS_NAME: 测试类名
+ * - TEST_TARGET: 被测试类名
+ */
+
+@Test
+class {{TEST_CLASS_NAME}} {
+    
+    @TestCase
+    func testBasicFunction(): Unit {
+        let target = {{TEST_TARGET}}()
+        
+        // 测试基本功能
+        @Assert(target != None, "对象不应为空")
+    }
+    
+    @TestCase
+    func testReturnValue(): Unit {
+        let target = {{TEST_TARGET}}()
+        // let result = target.someMethod()
+        
+        // @Assert(result == expected, "返回值应该正确")
+    }
+    
+    @TestCase
+    func testEdgeCase(): Unit {
+        // 测试边界情况
+        let target = {{TEST_TARGET}}()
+        
+        // @Expect(target.handleEdgeCase())
+    }
+}
