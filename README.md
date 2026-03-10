@@ -24,13 +24,16 @@
 1. **下载可执行文件**
    ```bash
    # macOS (arm64)
-   curl -L -o cjmp-docs-mcp https://github.com/yourusername/cjmp-docs-mcp/releases/download/v1.0.0/cjmp-docs-mcp-macos-arm64
+   # 从 GitHub Releases 下载
    chmod +x cjmp-docs-mcp
    ```
 
 2. **配置 VSCode**
    
-   编辑 VSCode 的 MCP 配置文件（`~/Library/Application Support/Code/User/globalStorage/anthropic.claude-code/settings/cline_mcp_settings.json`）：
+   编辑 VSCode 的 MCP 配置文件：
+   
+   **路径**: `~/Library/Application Support/Code/User/globalStorage/anthropic.claude-code/settings/cline_mcp_settings.json`
+   
    ```json
    {
      "mcpServers": {
@@ -52,16 +55,9 @@
    cd cjmp-docs-mcp
    ```
 
-2. **安装依赖**
+2. **运行 MCP 服务器**
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   pip install pyinstaller
-   ```
-
-3. **运行 MCP 服务器**
-   ```bash
-   python mcp-server/server_mcp.py
+   python3 mcp-server/server_mcp.py
    ```
 
 ---
@@ -137,20 +133,9 @@ cjmp-docs-mcp/
 ├── examples/                   # 代码示例
 ├── templates/                  # 代码模板
 ├── reference/                  # 参考文档
-├── dist/                       # 预编译可执行文件
-│   └── cjmp-docs-mcp           # macOS 可执行文件
-└── build.sh                    # 构建脚本
+└── dist/                       # 预编译可执行文件
+    └── cjmp-docs-mcp           # macOS 可执行文件
 ```
-
----
-
-## 🔧 配置 Skill
-
-将本项目添加到 Claude Code 的 Skills 目录：
-
-1. 找到 Claude Code 的 Skills 目录
-2. 将 `SKILL.md` 和相关文件复制到该目录
-3. 重启 Claude Code
 
 ---
 
