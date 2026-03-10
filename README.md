@@ -1,7 +1,7 @@
 # CJMP 文档 MCP 服务器与 Skill
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/cjmp-docs-mcp)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yff727/cjmp-docs-mcp)
 
 > CJMP (Cangjie Multi-Platform) 文档查询 MCP 服务器与 Claude Skill，提供 2131 个文档和 4211 个代码示例的查询能力。
 
@@ -51,7 +51,7 @@
 
 1. **克隆仓库**
    ```bash
-   git clone https://github.com/yourusername/cjmp-docs-mcp.git
+   git clone https://github.com/yff727/cjmp-docs-mcp.git
    cd cjmp-docs-mcp
    ```
 
